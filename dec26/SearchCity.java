@@ -1,6 +1,12 @@
-package day1;
+package dec26;
 /**
+* 
+*  Q.WAP which accepts name of cities.Ask the user to enter the character 
+*  sequence to search the city and display the searched city
+*  
 *  Demonstration of Searching a string in an another string
+*  
+*  @author  Sanjib Maharjan
 */
 import java.util.Scanner;
 
@@ -27,6 +33,8 @@ class SearchCity {
 			}
 
 		}
+		
+		in.close();
 
 		
 	}

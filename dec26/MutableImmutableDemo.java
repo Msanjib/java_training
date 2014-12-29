@@ -1,7 +1,15 @@
-package day1;
+package dec26;
 /**
+*  
+*  Q.Create a class MutableImmutableDemo. Inside that class crreate object 
+*  greeting of String and another object welcome of StringBuilder.
+*  Try to modify both object by concatenating some string on a suffix on both
+*  
+*  
 *  Demonstration of Immutable String Class and Mutable StringBuilder
 *  Class.
+*  
+*  @author  Sanjib Maharjan
 *
 */
 
