@@ -1,16 +1,17 @@
 package dec26;
 
-/**
- * 
+/*
  * Q.Wap that computes your initials from your full name and displays them
+ * 
+ */
+
+import java.util.Scanner;
+/**
  * 
  *  Displaying initials of a name
  * 
  *  @author  Sanjib Maharjan
  */
-
-import java.util.Scanner;
-
 class Initials {
 
 	public static void main(String[] args) {

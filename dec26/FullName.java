@@ -1,8 +1,12 @@
 package dec26;
 
-/**
+/*
  * Q.Wap which gets arguments from console initial, FN, MN and LN then 
  * displays all as full name
+ * 
+ */
+import java.util.Scanner;
+/**
  * 
  *  Demonstration of Immutable String Class and Mutable StringBuilder
  *  Class using concatenation.
@@ -10,8 +14,6 @@ package dec26;
  *  @author  Sanjib Maharjan
  *
  */
-import java.util.Scanner;
-
 class FullName {
 
 	public static void main(String[] args) {
