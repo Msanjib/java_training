@@ -29,14 +29,15 @@ public class SimpleCalculator {
 		Scanner input = new Scanner(System.in);
 		int choice = input.nextInt();
 		
-		int num1 = 0, num2 = 0;
+		float num1 = 0; 
+		float num2 = 0;
 		
 		if(choice > 0 && choice < 6) {
 			System.out.print("Enter first number:");
-			num1 = input.nextInt();
+			num1 = input.nextFloat();
 			
 			System.out.print("Enter second number:");
-			num2 = input.nextInt();
+			num2 = input.nextFloat();
 		}
 		
 		switch (choice) {
