@@ -19,44 +19,44 @@ class FullName {
 	public static void main(String[] args) {
 		// Use StringBuilder because it is mutable and this require multiple
 		// concatenations
-		StringBuilder name = new StringBuilder();
+		StringBuilder nameBuilder = new StringBuilder();
 		
-		Scanner in = new Scanner(System.in);
+		Scanner input = new Scanner(System.in);
 		// To make sure initials is not empty
-		while (name.toString().trim().equals("")) {
+		while (nameBuilder.toString().trim().equals("")) {
 			System.out.print("Enter your Initials(Mr/Mrs):");
-			name.append(in.nextLine());
+			nameBuilder.append(input.nextLine());
 		}
 		
 		String temp = "";
 		// To make sure first name is not empty
 		while (temp.trim().equals("")) {
 			System.out.print("Enter your First name:");
-			temp=in.nextLine();
+			temp=input.nextLine();
 		}
-		name.append(" ");
-		name.append(temp);
+		nameBuilder.append(" ");
+		nameBuilder.append(temp);
 		
 		//Middle name may be empty
 		System.out.print("Enter your Middle name:");
-		String m = in.nextLine().trim();
-		if (!m.equals("")) {
+		String middleName = input.nextLine().trim();
+		if (!middleName.equals("")) {
 			// name.append(" "+m);
-			name.append(" ");
-			name.append(m);
+			nameBuilder.append(" ");
+			nameBuilder.append(middleName);
 		}
 		
 		temp = "";
 		// To make sure last name is not empty
 		while (temp.trim().equals("")) {
 			System.out.print("Enter your Last name:");
-			temp=in.nextLine();
+			temp=input.nextLine();
 		}
-		name.append(" ");
-		name.append(temp);
+		nameBuilder.append(" ");
+		nameBuilder.append(temp);
 
-		System.out.print("Hi, " + name);
-		in.close();
+		System.out.print("Hi, " + nameBuilder);
+		input.close();
 
 	}
 
