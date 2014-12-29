@@ -1,3 +1,4 @@
+package day1;
 /**
 *  Displaying initials of a name
 */

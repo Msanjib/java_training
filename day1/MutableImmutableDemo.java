@@ -1,3 +1,4 @@
+package day1;
 /**
 *  Demonstration of Immutable String Class and Mutable StringBuilder
 *  Class.

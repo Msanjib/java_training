@@ -1,3 +1,4 @@
+package day1;
 /**
 *  Demonstration of Searching a string in an another string
 */

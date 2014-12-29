@@ -1,3 +1,4 @@
+package day1;
 /**
 *  Demonstration to show what error is thrown when the range of integer
 *  primitive type goes out of range -2^31 <= int <= (2^31)-1

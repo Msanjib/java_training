@@ -1,3 +1,4 @@
+package day1;
 /**
 *  Demonstration of Immutable String Class and Mutable StringBuilder
 *  Class using concatenation.
@@ -29,6 +30,7 @@ class FullName{
 		name.append(in.nextLine());
 		
 		System.out.print("Hi, "+name);
+		in.close();
 		
       		
 	}
