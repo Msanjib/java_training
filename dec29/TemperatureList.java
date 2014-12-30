@@ -14,15 +14,15 @@ public class TemperatureList {
 	public static void main(String[] args) {
 		System.out.println("Sn.   Celcius   Fahrenheit");
 		String space = "";
-		float fah_scale = 0;
+		float fahScale = 0;
 		int i = 0;
 		for (i = 0; i <= 100; i++) {
 			// to generate equal spaces
 			space = generateSpace(i);
-			fah_scale = (float) (i * 9.0 / 5 + 32);
+			fahScale = (float) (i * 9.0 / 5 + 32);
 
 			System.out.println((i + 1) + space + i + "°C" + "       "
-					+ fah_scale + "°F");
+					+ fahScale + "°F");
 		}
 
 	}

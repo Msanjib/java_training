@@ -22,21 +22,47 @@ public class SimpleCalculator {
 		System.out.println("Enter 3 for simple Multiplication");
 		System.out.println("Enter 4 for simple Division");
 		System.out.println("Enter 5 for modulo Division");
-		System.out.print("Enter your choice:");
 
+		int choice = 0;
 		Scanner input = new Scanner(System.in);
-		int choice = input.nextInt();
+		do {
+			try {
+				System.out.print("Enter your choice:");
+				choice = input.nextInt();
+			} catch (Exception e) {
+				choice = 0;
+				System.out.println("Invalid Choice.Try Again!");
+				input.next();
+			}
+		} while (choice < 1 || choice > 5);
 
 		float num1 = 0;
 		float num2 = 0;
+		boolean errorInput = false;
 
-		if (choice > 0 && choice < 6) {
-			System.out.print("Enter first number:");
-			num1 = input.nextFloat();
+		do {
+			try {
+				System.out.print("Enter first number:");
+				num1 = input.nextFloat();
+				errorInput = false;
+			} catch (Exception e) {
+				errorInput = true;
+				System.out.println("Not a Number.Try Again!");
+				input.next();
+			}
+		} while (errorInput);
 
-			System.out.print("Enter second number:");
-			num2 = input.nextFloat();
-		}
+		do {
+			try {
+				System.out.print("Enter second number:");
+				num2 = input.nextFloat();
+				errorInput = false;
+			} catch (Exception e) {
+				errorInput = true;
+				System.out.println("Not a Number.Try Again!");
+				input.next();
+			}
+		} while (errorInput);
 
 		switch (choice) {
 		case 1:
@@ -50,10 +76,12 @@ public class SimpleCalculator {
 			System.out.print("Multiplication Result:" + (num1 * num2));
 			break;
 		case 4:
-			System.out.print("Division Result:" + (num1 / num2));
+			System.out.print("Division Result:"
+					+ (num2 != 0 ? (num1 / num2) : "Error:Divide by Zero"));
 			break;
 		case 5:
-			System.out.print("Modulo Division Result:" + (num1 % num2));
+			System.out.print("Modulo Division Result:"
+					+ (num2 != 0 ? (num1 % num2) : "Error:Divide by Zero"));
 			break;
 
 		default:
