@@ -102,7 +102,7 @@ class Date {
 	 */
 	public String getFormattedDate() {
 
-		return year + "/" + FormatDate(month) + "/" + FormatDate(day);
+		return year + "/" + formatDate(month) + "/" + formatDate(day);
 	}
 
 	/**
@@ -111,7 +111,7 @@ class Date {
 	 * 
 	 * @param value
 	 */
-	public String FormatDate(int value) {
+	public String formatDate(int value) {
 		String tempValue = "";
 		if ((value + "").length() < 2) {
 			tempValue = "0" + value;

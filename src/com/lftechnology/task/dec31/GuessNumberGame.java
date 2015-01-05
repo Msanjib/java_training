@@ -44,7 +44,7 @@ public class GuessNumberGame {
 	 * @return the random number between the given range
 	 */
 	public static int randomGenerator(int lowNum, int uppNum) {
-		return (int) ((Math.random() * uppNum) + lowNum);
+		return (int) ((Math.random() * (uppNum - lowNum)) + lowNum);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class GuessNumberGame {
 	 */
 	public static String getGameResult(int numToGuess, int guessedNum) {
 		String result = "";
-		if (guessedNum > 100 && guessedNum < 1) {
+		if (guessedNum > 100 || guessedNum < 1) {
 			result = "Please, Enter Numbers between 1 and 100 only..";
 		} else if (guessedNum > numToGuess) {
 			result = "Hint:Number is less than " + guessedNum;

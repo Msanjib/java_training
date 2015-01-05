@@ -30,8 +30,7 @@ public class TestSavingAccount {
 				(saver1.getSavingsBalance()) + firstMonthInterestUser1);
 		System.out.printf("User2:\nFirst month interest amount:%f\tTotal"
 				+ " Savings after one month:%f\n\n", firstMonthInterestUser2,
-				(saver2.getSavingsBalance()) + firstMonthInterestUser2
-						+ firstMonthInterestUser2);
+				(saver2.getSavingsBalance()) + firstMonthInterestUser2);
 		SavingAccount.modifyInterestRate(0.05);
 		System.out.println("Interests and Saving after increase in rate");
 

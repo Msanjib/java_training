@@ -21,11 +21,10 @@ public class StudentScore {
 				66, 80 });
 		Student student5 = new Student("Elea", 5, 5, new float[] { 90, 89, 67,
 				71, 66 });
-		listAllStudents(new Student[] { student1, student2, student3, student4,
-				student5 });
+		listAllStudents(student1, student2, student3, student4, student5);
 	}
 
-	public static void listAllStudents(Student[] students) {
+	public static void listAllStudents(Student... students) {
 		int numStudents = students.length;
 		for (int i = 0; i < numStudents; i++) {
 			students[i].displayStudentInfo();

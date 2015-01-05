@@ -24,7 +24,7 @@ public class DistanceManager {
 		System.out.println("Input second value for distance");
 		setDistanceInput(distanceInput2, userInput);
 		userInput.close();
-		displayAddDistances(new Distance[] { distanceInput1, distanceInput2 });
+		displayAddDistances(distanceInput1, distanceInput2);
 		displayCompareDistances(distanceInput1, distanceInput2);
 	}
 
