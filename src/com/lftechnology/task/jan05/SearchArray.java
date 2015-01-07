@@ -11,10 +11,8 @@ import java.util.logging.Logger;
  * 
  */
 public class SearchArray {
-	private static final Logger LOGGER = Logger.getLogger(SearchArray.class
-			.getName());
-	private static final String ARRAY_WORDS[] = { "Amnesia", "Good", "Bad",
-			"Awesome", "good", "awesome", "123Madman", "Yeah" };
+	private static final Logger LOGGER = Logger.getLogger(SearchArray.class.getName());
+	private static final String ARRAY_WORDS[] = { "Amnesia", "Good", "Bad", "Awesome", "good", "awesome", "123Madman", "Yeah" };
 
 	public static void main(String[] args) {
 		Scanner inputuser = new Scanner(System.in);
@@ -47,11 +45,9 @@ public class SearchArray {
 	 *            the array of strings
 	 * @param searchValue
 	 *            the string value to be searched in the array
-	 * @return list of position of array where the search value matches the
-	 *         array
+	 * @return list of position of array where the search value matches the array
 	 */
-	public static ArrayList<Integer> getMatchedPosition(String[] arrayString,
-			String searchValue) {
+	public static ArrayList<Integer> getMatchedPosition(String[] arrayString, String searchValue) {
 		ArrayList<Integer> searchResult = new ArrayList<Integer>();
 		int arraySize = arrayString.length;
 		for (int i = 0; i < arraySize; i++) {

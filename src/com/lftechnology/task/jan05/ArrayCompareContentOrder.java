@@ -9,8 +9,7 @@ import java.util.logging.Logger;
  * 
  */
 public class ArrayCompareContentOrder {
-	private static final Logger LOGGER = Logger
-			.getLogger(ArrayCompareContentOrder.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(ArrayCompareContentOrder.class.getName());
 
 	public static void main(String[] args) {
 		String array1[] = { "abc", "bbc", "amc", "apple", "tango" };
@@ -24,15 +23,13 @@ public class ArrayCompareContentOrder {
 
 	/**
 	 * <p>
-	 * checks the content element of array equals to the content of another
-	 * maintaining the same order of the arrays.
+	 * checks the content element of array equals to the content of another maintaining the same order of the arrays.
 	 * 
 	 * @param array1
 	 *            the 1st array of strings to compare
 	 * @param array2
 	 *            the 2nd array of strings to compare
-	 * @return <code>true</code> if the arrays are identical in order;
-	 *         <code>false</code> if the arrays are not identical in order
+	 * @return <code>true</code> if the arrays are identical in order; <code>false</code> if the arrays are not identical in order
 	 */
 	public static boolean isArrarsEqualInOrder(String[] array1, String[] array2) {
 		int sizeArray1 = array1.length;
