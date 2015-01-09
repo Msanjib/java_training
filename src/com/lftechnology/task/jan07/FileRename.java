@@ -66,7 +66,6 @@ public class FileRename {
 
 			} catch (IOException e) {
 				LOGGER.warning("Cannot create the file at " + filePath);
-
 			}
 		} finally {
 			input.close();
@@ -75,11 +74,13 @@ public class FileRename {
 
 	/**
 	 * @param scanner
+	 *            A {@link Scanner} instance to get user input
 	 * @param message
 	 *            a message to display to the users
 	 * @param conditions
 	 *            if conditions are set then the users will be prompted until and unless the user inputs the values in the conditions
-	 * @return
+	 * @return the input from the user as the String object
+	 * @see {@link Scanner}
 	 */
 	public static String getInputFromUser(Scanner scanner, String message, String... conditions) {
 		String inputUser = "";
@@ -97,7 +98,6 @@ public class FileRename {
 					}
 				}
 			}
-
 		}
 		return inputUser;
 	}

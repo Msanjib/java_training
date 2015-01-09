@@ -53,7 +53,7 @@ public class FileUtils {
 	 * 
 	 * @param filePath
 	 *            complete path to the file with the file name
-	 * @return
+	 * @return the {@link File} instance of the created file
 	 * @throws IOException
 	 */
 	public static File createNewFile(String filePath) throws IOException {
@@ -75,7 +75,6 @@ public class FileUtils {
 			file.createNewFile();
 			return file;
 		}
-
 	}
 
 	/**
@@ -89,7 +88,6 @@ public class FileUtils {
 	 */
 	public static void createNewFile(String dirPath, String fileName) throws IOException {
 		File file = new File(dirPath);
-
 		if (!file.exists()) {
 			file.mkdirs();
 		}
@@ -118,12 +116,12 @@ public class FileUtils {
 	/**
 	 * Create a directories with the given path parameter
 	 * 
-	 * @param dirPath
+	 * @param pathDir
 	 *            a name of directory or the sequence of directory inside each directory
 	 * @return message for the result while creating the directory
 	 */
-	public static String createDirectory(String dirPath) {
-		File file = new File(dirPath);
+	public static String createDirectory(String pathDir) {
+		File file = new File(pathDir);
 		if (!file.exists()) {
 			if (file.mkdirs()) {
 				return "Directory created successfully";

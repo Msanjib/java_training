@@ -51,7 +51,6 @@ public class FileInput {
 		stringBuilder.append("the sum of ");
 		int numNumbers = numLists.size();
 		for (int i = 0; i < numNumbers; i++) {
-
 			stringBuilder.append(numLists.get(i));
 			if (i == (numNumbers - 2)) {
 				stringBuilder.append(" and ");

@@ -17,7 +17,6 @@ public class FileCreator {
 	public static void main(String[] args) {
 		try {
 			File file = FileUtils.createNewFile("kk/ll/");
-
 			if (file.isFile()) {
 				LOGGER.info("file \"" + file.getName() + "\" created at \"" + file.getAbsolutePath() + "\"");
 			} else if (file.isDirectory()) {
