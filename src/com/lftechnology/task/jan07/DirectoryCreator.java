@@ -10,9 +10,9 @@ import java.util.logging.Logger;
  * 
  */
 public class DirectoryCreator {
-	public static final Logger LOGGER = Logger.getLogger(CreateFile.class.getName());
+	public static final Logger LOGGER = Logger.getLogger(FileCreator.class.getName());
 
 	public static void main(String[] args) throws IOException {
-		LOGGER.info(FileUtils.createDirectory("/kl/kl/kl"));
+		LOGGER.info(FileUtils.createDirectory("repo/l/l"));
 	}
 }

@@ -2,6 +2,8 @@ package com.lftechnology.task.jan07;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -25,9 +27,9 @@ public class FileInput {
 	public static final Logger LOGGER = Logger.getLogger(FileInput.class.getName());
 
 	public static void main(String[] args) {
-		ArrayList<String> fileWordLists = new ArrayList<String>();
-		ArrayList<Float> numLists = new ArrayList<Float>();
-		ArrayList<String> stringLists = new ArrayList<String>();
+		List<String> fileWordLists = new ArrayList<String>();
+		List<Float> numLists = new ArrayList<Float>();
+		List<String> stringLists = new ArrayList<String>();
 		try {
 			fileWordLists = FileUtils.readFile("files/bib.txt");
 		} catch (IOException e) {
@@ -41,7 +43,7 @@ public class FileInput {
 			}
 		}
 		// Displaying in the given format
-		StringBuilder stringBuilder = new StringBuilder("Hi!");
+		StringBuilder stringBuilder = new StringBuilder("Hi! ");
 		for (String string : stringLists) {
 			stringBuilder.append(string);
 			stringBuilder.append(", ");
@@ -59,13 +61,17 @@ public class FileInput {
 				stringBuilder.append(", ");
 			}
 		}
-		stringBuilder.append(" is ");
-		stringBuilder.append(addNums(numLists));
-		stringBuilder.append(".");
-		LOGGER.info(stringBuilder.toString());
+		LOGGER.log(Level.INFO, "{0} is {1}.", new Object[] { stringBuilder, addNums(numLists) });
 	}
 
-	private static float addNums(ArrayList<Float> numbers) {
+	/**
+	 * This method adds up the numbers in the list
+	 * 
+	 * @param numbers
+	 *            the list of numbers to be added
+	 * @return the sum of numbers passed in the list
+	 */
+	private static float addNums(List<Float> numbers) {
 		float sum = 0;
 		for (float floats : numbers) {
 			sum += floats;

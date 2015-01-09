@@ -11,12 +11,12 @@ import java.util.logging.Logger;
  * @author Sanjib<sanjibmaharjan@lftechnology.com>
  * 
  */
-public class CreateFile {
-	public static final Logger LOGGER = Logger.getLogger(CreateFile.class.getName());
+public class FileCreator {
+	public static final Logger LOGGER = Logger.getLogger(FileCreator.class.getName());
 
 	public static void main(String[] args) {
 		try {
-			File file = FileUtils.createNewFile("files/read.txt");
+			File file = FileUtils.createNewFile("kk/ll/");
 
 			if (file.isFile()) {
 				LOGGER.info("file \"" + file.getName() + "\" created at \"" + file.getAbsolutePath() + "\"");

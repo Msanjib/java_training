@@ -41,14 +41,13 @@ public class FileRename {
 					fileRenamePath = getInputFromUser(input, "Enter the filename with path to rename:");
 					try {
 						fileRename = FileUtils.createNewFile(fileRenamePath);
-
+						errorRename = false;
 					} catch (IOException e) {
 						LOGGER.warning("Cannot rename the file to " + fileRenamePath);
-					} finally {
-						errorRename = false;
+						errorRename = true;
 					}
 				}
-				boolean isReNamed = FileUtils.renameFile(filePath, fileRenamePath);
+				boolean isReNamed = FileUtils.renameFile(file, fileRename);
 				// Ask the user if he/she wants to delete the renamed file.
 				LOGGER.info("Do you want to delete " + filePath + "?");
 				String deleteDecision = getInputFromUser(input, "Do you want to delete " + fileRenamePath + "(y/n)?:", "y", "n");
@@ -91,12 +90,12 @@ public class FileRename {
 			if (!inputUser.equals("") && conditions.length == 0) {
 				loopAgain = false;
 			} else {
-				loopAgain = false;
-				boolean loopCondition = false;
 				for (String cond : conditions) {
-					loopCondition = loopCondition || inputUser.equals(cond);
+					if (inputUser.equals(cond)) {
+						loopAgain = false;
+						break;
+					}
 				}
-				loopAgain = loopAgain || !loopCondition;
 			}
 
 		}
