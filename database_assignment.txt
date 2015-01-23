@@ -1,0 +1,250 @@
+Database Assignment
+
+SECTION I
+
+1.Display First name and Job of all employees who do not earn a commission.
+
+SELECT 
+    first_name, job_id 'job', commission_percent
+FROM
+    employees
+WHERE
+    commission_percent IS NULL;
+
+
+2.Display name, job id and data of hiring of all employees who work in IT department with the most recent dates appearing first.
+
+SELECT 
+    CONCAT_WS(' ', first_name, last_name) 'Name',
+    job_id 'job',
+    hire_date 'Date of Hiring'
+FROM
+    employees
+WHERE
+    department_id = 'IT'
+ORDER BY hire_date DESC; 
+
+
+3.Display no. of employees in each department, alongside department code, only those employees with salary greater than 3000.
+
+SELECT 
+    department_id, COUNT(*) 'No. of Employees'
+FROM
+    employees
+WHERE
+    salary > 3000
+GROUP BY department_id; 
+
+
+4.Modify Query 3 such that only departments with more than 15 employees are 
+displayed.
+
+SELECT 
+    department_id, COUNT(*) 'Number_of_Employees'
+FROM
+    employees
+WHERE
+    salary > 3000
+GROUP BY department_id
+HAVING Number_of_Employees > 2; 
+
+
+
+5.Display total salary of each department, alongside department code, with only 
+departments with total salary > 10000. If any employee has no departments display “EXECUTIVE”.
+
+SELECT 
+    COALESCE(department_id, 'Executive') 'Department',
+    SUM(salary) 'Total_Salary'
+FROM
+    employees
+GROUP BY department_id
+HAVING Total_salary > 10000; 
+
+
+
+
+
+
+Section II
+
+1.Write a query to subtract current date to previous year, but add 2 months.
+
+SELECT 
+    DATE_ADD(DATE_SUB(CURDATE(), INTERVAL 1 YEAR),
+        INTERVAL 2 MONTH); 
+
+
+2.Write a query to display output given below using MySQL date functions:
+
+SELECT 
+    CONCAT_WS('-',
+            SUBSTR(Month, 1, 3),
+            SUBSTR(Year, - 2, 2)) 'Month',
+    DATE(CONCAT_WS('-',
+                Year,
+                MONTH(STR_TO_DATE(SUBSTR(Month, 1, 3), '%b')),
+                '01')) 'Start Date',
+    LAST_DAY(CONCAT_WS('-',
+                    Year,
+                    MONTH(STR_TO_DATE(SUBSTR(Month, 1, 3), '%b')),
+                    '01')) 'End Date'
+FROM
+    tblDATE;
+
+
+
+
+
+
+Section III
+
+
+
+
+
+1.Select the title and language of all the films with film title starting with ‘A’. (Tables: film, language)
+
+
+SELECT 
+    f.title, l.name
+FROM
+    film f
+        JOIN
+    language l ON f.language_id = l.language_id
+WHERE
+    f.title LIKE 'a%'
+LIMIT 10;
+
+ 
+
+
+
+
+
+
+
+
+2.Return the first name, last name and city of all customers who live in Canada. Order the results first by the last name and then by the first name. 
+(Tables: customer, address, city, country)
+
+SELECT 
+    c.first_name, c.last_name, ci.city
+FROM
+    customer c
+        JOIN
+    address a ON a.address_id = c.address_id
+        JOIN
+    city ci ON ci.city_id = a.city_id
+        JOIN
+    country co ON co.country_id = ci.country_id
+WHERE
+    co.country = 'canada'
+ORDER BY c.first_name , c.last_name;
+
+
+
+3.Select full name of all the actors of films along with the film name, which contain actor with first name ‘JENNIFER’.
+
+SELECT 
+    CONCAT_WS(' ', c.first_name, c.last_name) 'Name', ca.name
+FROM
+    customer c
+        JOIN
+    rental r ON r.customer_id = c.customer_id
+        JOIN
+    inventory i ON i.inventory_id = r.inventory_id
+        JOIN
+    film_category f ON f.film_id = i.film_id
+        JOIN
+    category ca ON ca.category_id = f.category_id
+WHERE
+    ca.name = 'Horror'
+ORDER BY Name;
+
+
+4.Select full name of all the actors of films along with the film name, which contain actor with first name ‘JENNIFER’.
+
+SELECT 
+    CONCAT_WS(' ', a.first_name, a.last_name) 'Actor name',
+    f.title 'Film Name'
+FROM
+    film_actor af
+        JOIN
+    actor a ON a.actor_id = af.actor_id
+        JOIN
+    film f ON f.film_id = af.film_id
+WHERE
+    af.actor_id IN (SELECT 
+            a.actor_id
+        FROM
+            actor a
+        WHERE
+            a.first_name = 'Jennifer');
+
+
+
+5.Select full name of all of the customers who have rented movies in the category ‘Music’.
+
+SELECT 
+    CONCAT_WS(' ', c.first_name, c.last_name) 'Name'
+FROM
+    customer c
+WHERE
+    c.customer_id IN (SELECT 
+            r.customer_id
+        FROM
+            rental r
+        WHERE
+            r.inventory_id IN (SELECT 
+                    i.inventory_id
+                FROM
+                    inventory i
+                WHERE
+                    i.film_id IN (SELECT 
+                            fc.film_id
+                        FROM
+                            film_category fc
+                        WHERE
+                            fc.category_id = ALL (SELECT 
+                                    ca.category_id
+                                FROM
+                                    category ca
+                                WHERE
+                                    ca.name = 'Music'))));
+
+
+
+
+
+6.Show all customer ids and full names who have rented a film in every category with category_id >=5.
+
+ 
+SELECT 
+    CONCAT_WS(' ', c.first_name, c.last_name) 'Name'
+FROM
+    customer c
+WHERE
+    c.customer_id IN (SELECT 
+            r.customer_id
+        FROM
+            rental r
+        WHERE
+            r.inventory_id IN (SELECT 
+                    i.inventory_id
+                FROM
+                    inventory i
+                WHERE
+                    i.film_id IN (SELECT 
+                            fc.film_id
+                        FROM
+                            film_category fc
+                        WHERE
+                            fc.category_id = ALL (SELECT 
+                                    ca.category_id
+                                FROM
+                                    category ca
+                                WHERE
+                                    ca.category_id < 2))));
+
+
